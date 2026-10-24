@@ -1,0 +1,12 @@
+<meta name="google-site-verification" content="w739yLSD3HSCAADo_vC7xrAqlY7aLJ5894-z1ae-SnE" />
+{{- /* canonical·description 은 테마 head.html 이 출력한다(9/28 확인: 여기서도 찍어 글마다 2개씩 나갔다). 트위터 카드만 보강. */}}
+{{- if .IsPage }}
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="{{ .Title }}" />
+{{- with (.Params.description | default .Summary) }}
+<meta name="twitter:description" content="{{ . }}" />
+{{- end }}
+{{- with .Params.cover.image }}
+<meta name="twitter:image" content="{{ . }}" />
+{{- end }}
+{{- end }}
